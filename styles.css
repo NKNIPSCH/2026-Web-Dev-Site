@@ -1,0 +1,203 @@
+/* Reset spacing so nothing weird happens */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: #111;
+  background: #fff;
+}
+
+a { color: inherit; }
+
+/* Keep site centered and not full width */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Top header bar */
+.site-header {
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+
+/* Title + tagline layout */
+.brand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 0 0.25rem 0;
+}
+
+.site-title {
+  font-size: 1.35rem;
+}
+
+.tagline {
+  font-size: 0.95rem;
+  opacity: 0.75;
+}
+
+/* Nav buttons */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0 0 0.85rem 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid #ddd;
+  border-radius: 999px; /* makes them pill-shaped */
+}
+
+.main-nav a:hover {
+  border-color: #999;
+}
+
+/* Home intro section */
+.hero {
+  margin: 1.75rem 0 1rem 0;
+}
+
+.hero h2 {
+  font-size: 1.55rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  max-width: 75ch;
+  opacity: 0.88;
+}
+
+/* 2 column layout for cards */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* always 2 across */
+  gap: 2rem;
+  justify-items: center;
+  margin: 2rem 0 2.25rem 0;
+}
+
+/* Card container */
+.tile {
+  width: 100%;
+  max-width: 280px; /* change if cards look too small/big */
+  aspect-ratio: 5 / 11; /* controls card height */
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Split card into image (top) + text (bottom) */
+.tile-link {
+  display: grid;
+  grid-template-rows: 65% 35%; /* adjust if text needs more space */
+  height: 100%;
+  text-decoration: none;
+}
+
+/* Makes all images same size */
+.tile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* change to contain if cropping looks bad */
+  display: block;
+}
+
+/* Bottom text area */
+.tile-text {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.tile-text h3 {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.tile-text p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* Small hover lift effect */
+.tile:hover {
+  border-color: #999;
+  transform: translateY(-3px);
+  transition: transform 150ms ease, border-color 150ms ease;
+}
+
+/* Footer line */
+.site-footer {
+  border-top: 1px solid #ddd;
+  padding: 1rem 0;
+  text-align: center;
+  opacity: 0.85;
+}
+
+/* Inner page spacing */
+.page-header {
+  margin: 1.75rem 0 1rem 0;
+}
+
+.page-header p {
+  max-width: 80ch;
+  opacity: 0.88;
+}
+
+/* For famous cards list layout */
+.cards-list {
+  display: grid;
+  gap: 1.5rem;
+  margin: 1.5rem 0 2rem 0;
+}
+
+/* Wider article cards (famous page) */
+.tile-wide {
+  max-width: 900px;
+  aspect-ratio: auto; /* let content decide height */
+}
+
+/* Layout for wide version */
+.tile-link-wide {
+  grid-template-rows: auto;
+  grid-template-columns: 220px 1fr;
+}
+
+/* Image on wide cards */
+.tile-link-wide .tile-img {
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  background: #f2f2f2;
+}
+
+.value {
+  margin-top: 0.75rem;
+}
+
+/* Mobile tweak */
+@media (max-width: 700px) {
+  .tile-link-wide {
+    grid-template-columns: 1fr; /* stack image on top */
+  }
+  .tile-link-wide .tile-img {
+    min-height: 200px;
+  }
+}
