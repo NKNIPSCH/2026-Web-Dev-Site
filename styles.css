@@ -1,203 +1,266 @@
-/* Reset spacing so nothing weird happens */
+/* =========================
+   Basic Reset
+========================= */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* =========================
+   Ravens Theme Colors
+========================= */
+:root {
+  --ravens-purple: #241773;
+  --ravens-purple-dark: #130c3d;
+  --ravens-black: #000000;
+  --ravens-gold: #9e7c0c;
+
+  --bg-main: #f6f3fb;
+  --bg-soft: #fcfbff;
+  --text-main: #1a1a1a;
+  --text-soft: #57506a;
+  --border-soft: #d8d1ea;
+
+  --shadow-soft: 0 8px 18px rgba(36, 23, 115, 0.08);
+  --shadow-hover: 0 14px 26px rgba(36, 23, 115, 0.16);
+}
+
 body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  line-height: 1.6;
-  color: #111;
-  background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  color: var(--text-main);
+  background: linear-gradient(to bottom, #efeafb 0%, var(--bg-main) 20%, #ffffff 100%);
 }
 
-a { color: inherit; }
+img {
+  max-width: 100%;
+  display: block;
+}
 
-/* Keep site centered and not full width */
+a {
+  color: inherit;
+}
+
 .container {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0 20px;
 }
 
-/* Top header bar */
+/* =========================
+   Header
+========================= */
 .site-header {
-  border-bottom: 1px solid #ddd;
-  background: #fff;
+  background: linear-gradient(135deg, var(--ravens-purple), var(--ravens-purple-dark));
+  color: white;
+  border-bottom: 3px solid var(--ravens-gold);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
-/* Title + tagline layout */
 .brand {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.75rem 0 0.25rem 0;
+  padding: 16px 0 10px;
+  text-align: center;
 }
 
 .site-title {
-  font-size: 1.35rem;
+  font-size: 2rem;
+  margin-bottom: 4px;
 }
 
 .tagline {
   font-size: 0.95rem;
-  opacity: 0.75;
+  color: rgba(255, 255, 255, 0.85);
 }
 
-/* Nav buttons */
+/* =========================
+   Navigation
+========================= */
+.main-nav {
+  padding-bottom: 14px;
+}
+
 .main-nav ul {
   list-style: none;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  padding: 0 0 0.85rem 0;
+  gap: 10px;
+}
+
+.main-nav li {
+  list-style: none;
 }
 
 .main-nav a {
+  display: inline-block;
   text-decoration: none;
-  padding: 0.35rem 0.65rem;
-  border: 1px solid #ddd;
-  border-radius: 999px; /* makes them pill-shaped */
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+  transition: all 0.18s ease;
 }
 
 .main-nav a:hover {
-  border-color: #999;
+  background: var(--ravens-gold);
+  color: var(--ravens-black);
+  border-color: var(--ravens-gold);
 }
 
-/* Home intro section */
-.hero {
-  margin: 1.75rem 0 1rem 0;
+.main-nav a[aria-current="page"] {
+  background: var(--ravens-gold);
+  color: var(--ravens-black);
+  border-color: var(--ravens-gold);
 }
 
-.hero h2 {
-  font-size: 1.55rem;
-  margin-bottom: 0.5rem;
+/* =========================
+   Main Content
+========================= */
+main.container {
+  padding-top: 28px;
+  padding-bottom: 28px;
 }
 
-.hero p {
-  max-width: 75ch;
-  opacity: 0.88;
+.hero,
+.page-header {
+  margin-bottom: 24px;
 }
 
-/* 2 column layout for cards */
+.hero h2,
+.page-header h2 {
+  color: var(--ravens-purple);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  display: inline-block;
+  border-bottom: 3px solid var(--ravens-gold);
+  padding-bottom: 4px;
+}
+
+.hero p,
+.page-header p {
+  margin-bottom: 10px;
+  color: var(--text-soft);
+}
+
+/* =========================
+   Grid Layouts
+========================= */
 .featured-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* always 2 across */
-  gap: 2rem;
-  justify-items: center;
-  margin: 2rem 0 2.25rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+  margin-top: 20px;
 }
 
-/* Card container */
-.tile {
-  width: 100%;
-  max-width: 280px; /* change if cards look too small/big */
-  aspect-ratio: 5 / 11; /* controls card height */
-  border: 1px solid #ddd;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #fff;
-}
-
-/* Split card into image (top) + text (bottom) */
-.tile-link {
+.cards-list {
   display: grid;
-  grid-template-rows: 65% 35%; /* adjust if text needs more space */
-  height: 100%;
-  text-decoration: none;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-/* Makes all images same size */
+/* =========================
+   Cards / Tiles
+========================= */
+.tile {
+  background: linear-gradient(to bottom, #ffffff, var(--bg-soft));
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.tile:hover {
+  transform: translateY(-4px);
+  border-color: rgba(36, 23, 115, 0.35);
+  box-shadow: var(--shadow-hover);
+}
+
+.tile-link {
+  display: block;
+  text-decoration: none;
+  height: 100%;
+}
+
 .tile-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* change to contain if cropping looks bad */
-  display: block;
+  height: 280px;
+  object-fit: cover;
+  border-bottom: 2px solid rgba(36, 23, 115, 0.08);
 }
 
-/* Bottom text area */
 .tile-text {
-  padding: 0.75rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.35rem;
+  padding: 14px;
 }
 
 .tile-text h3 {
-  font-size: 1rem;
-  line-height: 1.2;
+  color: var(--ravens-purple);
+  margin-bottom: 8px;
+  font-size: 1.05rem;
 }
 
 .tile-text p {
-  font-size: 0.9rem;
-  opacity: 0.85;
+  color: var(--text-soft);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
 }
 
-/* Small hover lift effect */
-.tile:hover {
-  border-color: #999;
-  transform: translateY(-3px);
-  transition: transform 150ms ease, border-color 150ms ease;
+.tile-text p:last-child {
+  margin-bottom: 0;
 }
 
-/* Footer line */
-.site-footer {
-  border-top: 1px solid #ddd;
-  padding: 1rem 0;
-  text-align: center;
-  opacity: 0.85;
-}
-
-/* Inner page spacing */
-.page-header {
-  margin: 1.75rem 0 1rem 0;
-}
-
-.page-header p {
-  max-width: 80ch;
-  opacity: 0.88;
-}
-
-/* For famous cards list layout */
-.cards-list {
+/* =========================
+   Wide Tiles
+========================= */
+.tile-wide .tile-link,
+.tile-wide .tile-link-wide {
   display: grid;
-  gap: 1.5rem;
-  margin: 1.5rem 0 2rem 0;
-}
-
-/* Wider article cards (famous page) */
-.tile-wide {
-  max-width: 900px;
-  aspect-ratio: auto; /* let content decide height */
-}
-
-/* Layout for wide version */
-.tile-link-wide {
-  grid-template-rows: auto;
   grid-template-columns: 220px 1fr;
+  align-items: stretch;
 }
 
-/* Image on wide cards */
-.tile-link-wide .tile-img {
+.tile-link-wide .tile-img,
+.tile-wide .tile-img {
   height: 100%;
   min-height: 220px;
   object-fit: cover;
-  background: #f2f2f2;
 }
 
 .value {
-  margin-top: 0.75rem;
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--ravens-black);
 }
 
-/* Mobile tweak */
+/* =========================
+   Footer
+========================= */
+.site-footer {
+  margin-top: 36px;
+  padding: 16px 0;
+  text-align: center;
+  background: #faf8fd;
+  border-top: 3px solid var(--ravens-gold);
+  font-size: 0.95rem;
+}
+
+/* =========================
+   Responsive
+========================= */
 @media (max-width: 700px) {
-  .tile-link-wide {
-    grid-template-columns: 1fr; /* stack image on top */
+  .site-title {
+    font-size: 1.7rem;
   }
-  .tile-link-wide .tile-img {
-    min-height: 200px;
+
+  .tile-img {
+    height: 240px;
+  }
+
+  .tile-wide .tile-link,
+  .tile-wide .tile-link-wide {
+    grid-template-columns: 1fr;
   }
 }
