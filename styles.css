@@ -1,15 +1,11 @@
-/* =========================
-   Basic Reset
-========================= */
+/* basic reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* =========================
-   Ravens Theme Colors
-========================= */
+/* ravens theme colors -- purple/gold */
 :root {
   --ravens-purple: #241773;
   --ravens-purple-dark: #130c3d;
@@ -48,9 +44,7 @@ a {
   padding: 0 20px;
 }
 
-/* =========================
-   Header
-========================= */
+/* header */
 .site-header {
   background: linear-gradient(135deg, var(--ravens-purple), var(--ravens-purple-dark));
   color: white;
@@ -73,9 +67,7 @@ a {
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* =========================
-   Navigation
-========================= */
+/* nav */
 .main-nav {
   padding-bottom: 14px;
 }
@@ -116,9 +108,7 @@ a {
   border-color: var(--ravens-gold);
 }
 
-/* =========================
-   Main Content
-========================= */
+/* main content */
 main.container {
   padding-top: 28px;
   padding-bottom: 28px;
@@ -145,9 +135,7 @@ main.container {
   color: var(--text-soft);
 }
 
-/* =========================
-   Grid Layouts
-========================= */
+/* grid layout */
 .featured-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -161,9 +149,7 @@ main.container {
   margin-top: 20px;
 }
 
-/* =========================
-   Cards / Tiles
-========================= */
+/* tiles -- tried border-radius: 0 here once, looked too boxy */
 .tile {
   background: linear-gradient(to bottom, #ffffff, var(--bg-soft));
   border: 1px solid var(--border-soft);
@@ -200,6 +186,7 @@ main.container {
   color: var(--ravens-purple);
   margin-bottom: 8px;
   font-size: 1.05rem;
+  /* font-size: 1.1em; */
 }
 
 .tile-text p {
@@ -212,9 +199,7 @@ main.container {
   margin-bottom: 0;
 }
 
-/* =========================
-   Wide Tiles
-========================= */
+/* wide tile layout -- only used on the famous cards page */
 .tile-wide .tile-link,
 .tile-wide .tile-link-wide {
   display: grid;
@@ -235,21 +220,17 @@ main.container {
   color: var(--ravens-black);
 }
 
-/* =========================
-   Footer
-========================= */
+/* footer */
 .site-footer {
   margin-top: 36px;
   padding: 16px 0;
   text-align: center;
   background: #faf8fd;
-  border-top: 3px solid var(--ravens-gold);
+  border-top: 3px solid #9e7c0c;
   font-size: 0.95rem;
 }
 
-/* =========================
-   Responsive
-========================= */
+/* responsive -- TODO: maybe add a tablet breakpoint at 900px at some point */
 @media (max-width: 700px) {
   .site-title {
     font-size: 1.7rem;
