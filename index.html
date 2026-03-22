@@ -1,133 +1,111 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Sports Cards Hub | Home</title>
-  <meta name="description" content="Sports Cards Hub: famous cards, my collection, dream list, and basics for beginners.">
+  <!-- page title written for SEO -- primary keyword up front -->
+  <title>Web Browsers As A Platform | IT 3203 Web Development</title>
+  <meta name="description" content="Exploring modern web browsers as a computing platform -- history, architecture, key concepts, and future trends. IT 3203 class project by Niklas Knipschild.">
 
-  <!-- Favicon in same folder as this HTML file -->
-  <link rel="icon" type="image/jpeg" href="RavensLogo.jpg">
-
-  <!-- CSS file in same folder as this HTML file -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <!-- Header stays the same on every page so the site feels consistent -->
+  <!-- header is the same on every page, keeps the site looking consistent -->
   <header class="site-header">
     <div class="container">
       <div class="brand">
-        <h1 class="site-title">Sports Cards Hub</h1>
-        <p class="tagline"><a href="famous-sport-cards.html">Famous cards</a> • <a href="my-collection.html">My collection</a> • <a href="my-dream-list.html">Dream list</a></p>
+        <!-- h1 on every page is the site name for SEO -- subpages use h2 for their main heading -->
+        <h1 class="site-title">Web Browsers As A Platform</h1>
+        <p class="tagline">History &bull; Architecture &bull; Key Concepts &bull; Future Trends</p>
       </div>
 
-      <!-- Keep nav simple; each page can reuse this exact block -->
       <nav class="main-nav" aria-label="Primary navigation">
         <ul>
           <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="famous-sport-cards.html">Famous Sport Cards</a></li>
-          <li><a href="my-collection.html">My Collection</a></li>
-          <li><a href="my-dream-list.html">My Dream List</a></li>
-          <li><a href="about.html">Learn</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="how-browsers-work.html">How Browsers Work</a></li>
+          <li><a href="key-concepts.html">Key Concepts</a></li>
+          <li><a href="references.html">References</a></li>
+          <li><a href="about.html">About</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <!-- not sure if the hero section needs its own class or not, leaving it for now -->
+
     <section class="hero" aria-labelledby="intro">
-      <h2 id="intro">Sports Cards — the hobby that turns adults into treasure goblins.</h2>
+      <h2 id="intro">The browser isnt just an app anymore, its the platform.</h2>
       <p>
-        This site is a simple hub: famous sports cards, my personal collection, my dream list,
-        and the basics (base vs parallels, grading, value, etc.).
+        In my day job as a sales manager, nearly everything my company does runs through a single application:
+        Google Chrome. For an organization of over 3,000 employees, the web browser has become the operating
+        system of the modern workplace.
+      </p>
+      <p>
+        This site explores how we got here, from simple hypertext viewers to the complex,
+        high-performance computing environments that power the modern web.
       </p>
     </section>
-    <section>
 
-<h2>How I Got Into Sports Cards</h2>
+    <!-- key terms section -- good for SEO and also required by the assignment -->
+    <section class="content-section">
+      <h2>Key Terms</h2>
+      <ul>
+        <li><strong>Rendering Engine</strong>:the browser component that converts HTML/CSS into pixels</li>
+        <li><strong>JavaScript Engine</strong>:executes JS code, uses JIT compilation for performance</li>
+        <li><strong>Sandboxing</strong>:isolates browser processes from the OS for security</li>
+        <li><strong>DOM</strong>:Document Object Model, the browser's internal representation of a webpage</li>
+        <li><strong>WebAssembly (WASM)</strong>:allows near-native performance code to run in the browser</li>
+        <li><strong>Progressive Web App (PWA)</strong>:web apps that behave like native mobile/desktop apps</li>
+      </ul>
+    </section>
 
-<p>
-I originally got into sports cards after watching videos on YouTube. Some of the
-channels that pulled me into the hobby were
-<a href="https://www.youtube.com/@cardcollector2" target="_blank">CardCollector2</a>,
-<a href="https://www.youtube.com/channel/UCmga1sDx_XUqW5XN60OAn4g" target="_blank">King of the Kards</a>,
-<a href="https://www.youtube.com/@SportsCardInvestor" target="_blank">Sports Card Investor</a>,
-and
-<a href="https://www.youtube.com/@CHASINGCARDBOARD" target="_blank">Chasing Cardboard</a>.
-Watching those channels made the hobby look exciting and got me interested in
-opening packs and building a collection.
-</p>
-<br>
-<p>
-At the time I was already a big NFL fan, so football cards immediately caught my
-attention. One day I was at Walgreens and saw a pack of NFL cards sitting on the
-shelf. I decided to buy one just to see what it was like.
-</p>
-<br>
-<p>
-That first pack pretty much hooked me. Opening packs, seeing what players you
-pull, and building a collection is a lot of fun.
-</p>
-
-<p style="margin-top: 10px;">
-My collection now includes several binders full of cards, most of them focused on
-Baltimore Ravens players.
-</p>
-
-<!-- TODO: maybe add a photo of my binders here someday -->
-
-</section>
-
-
-    <!-- IMPORTANT: This wrapper class name MUST match the CSS (.featured-grid)
-         If this class name changes, the grid breaks and everything lines up in a row. -->
+    <!-- 4 tiles linking to the main content pages, same pattern as my old site -->
+    <!-- IMPORTANT: the class here HAS to be featured-grid or the layout breaks -->
     <section class="featured-grid" aria-label="Main sections">
 
-      <!-- Tile 1: Famous Sports Cards -->
+      <!-- tile 1 -->
       <article class="tile">
-        <!-- I wrap the entire tile in a link so the whole card is clickable -->
-        <a class="tile-link" href="famous-sport-cards.html" aria-label="Go to Famous Sports Cards">
-          <img class="tile-img" src="images/mantle.jpg" alt="Mickey Mantle baseball card">
+        <a class="tile-link" href="history.html" aria-label="Go to Browser History">
+          <img class="tile-img" src="images/history.svg" alt="Timeline of web browser history">
           <div class="tile-text">
-            <h3>Famous Sports Cards</h3>
-            <p>Iconic rookies, legends, and the cards everyone knows.</p>
+            <h3>History of Browsers</h3>
+            <p>From Tim Berners-Lee's WorldWideWeb to Chrome dominating the market.</p>
           </div>
         </a>
       </article>
 
-      <!-- Tile 2: My Collection -->
+      <!-- tile 2 -->
       <article class="tile">
-        <a class="tile-link" href="my-collection.html" aria-label="Go to My Collection">
-          <img class="tile-img" src="images/lamarjacksonmycard.jpg" alt="Lamar Jackson card from my collection">
+        <a class="tile-link" href="how-browsers-work.html" aria-label="Go to How Browsers Work">
+          <img class="tile-img" src="images/architecture.svg" alt="Diagram of browser architecture">
           <div class="tile-text">
-            <h3>My Collection</h3>
-            <p>My best pulls, favorites, and Ravens PC highlights.</p>
+            <h3>How Browsers Work</h3>
+            <p>Rendering engines, JavaScript execution, multi-process architecture, and security.</p>
           </div>
         </a>
       </article>
 
-      <!-- Tile 3: My Dream List -->
+      <!-- tile 3 -->
       <article class="tile">
-        <a class="tile-link" href="my-dream-list.html" aria-label="Go to My Dream List">
-          <img class="tile-img" src="images/lamarrookie.jpg" alt="Lamar Jackson rookie card">
+        <a class="tile-link" href="key-concepts.html" aria-label="Go to Key Concepts">
+          <img class="tile-img" src="images/concepts.svg" alt="Web technology concept icons">
           <div class="tile-text">
-            <h3>My Dream List</h3>
-            <p>The grails I’m hunting next (my wallet hates me).</p>
+            <h3>Key Concepts</h3>
+            <p>The 7 core ideas every web developer should understand about modern browsers.</p>
           </div>
         </a>
       </article>
 
-      <!-- Tile 4: Learn the Basics -->
+      <!-- tile 4 -->
       <article class="tile">
-        <a class="tile-link" href="about.html" aria-label="Go to Learn the Basics">
-          <img class="tile-img" src="images/markandrews.png" alt="Mark Andrews football card">
+        <a class="tile-link" href="about.html" aria-label="Go to About">
+          <img class="tile-img" src="images/about.svg" alt="About this project">
           <div class="tile-text">
-            <h3>Learn The Basics</h3>
-            <p>Base vs parallels, inserts, grading, and what drives value.</p>
+            <h3>About This Project</h3>
+            <p>Who I am, why I picked this topic, and what I learned building this site.</p>
           </div>
         </a>
       </article>
@@ -137,8 +115,12 @@ Baltimore Ravens players.
 
   <footer class="site-footer">
     <div class="container">
-      <p>© 2026 Sports Cards Hub</p>
+      <!-- required by assignment -- must link to class site -->
+      <p>IT 3203 &mdash; Intro to Web Development &bull; Class project by Niklas Knipschild &bull;
+        <a href="https://ksuweb.github.io/IT3203/" target="_blank">IT 3203 Course Website</a>
+      </p>
     </div>
   </footer>
+
 </body>
 </html>

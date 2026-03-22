@@ -1,11 +1,11 @@
-/* basic reset */
+/* basc reset -- always do this first or everything looks wierd */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ravens theme colors -- purple/gold */
+/* ravens colors -- purple and gold, keeping this from my old site */
 :root {
   --ravens-purple: #241773;
   --ravens-purple-dark: #130c3d;
@@ -24,7 +24,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--text-main);
   background: linear-gradient(to bottom, #efeafb 0%, var(--bg-main) 20%, #ffffff 100%);
 }
@@ -34,6 +34,7 @@ img {
   display: block;
 }
 
+/* default link color inherits so nav styles dont get overriden */
 a {
   color: inherit;
 }
@@ -44,7 +45,9 @@ a {
   padding: 0 20px;
 }
 
-/* header */
+/* =====================
+   HEADER
+   ===================== */
 .site-header {
   background: linear-gradient(135deg, var(--ravens-purple), var(--ravens-purple-dark));
   color: white;
@@ -57,6 +60,7 @@ a {
   text-align: center;
 }
 
+/* h1 here is the site title, not page content -- good for SEO */
 .site-title {
   font-size: 2rem;
   margin-bottom: 4px;
@@ -67,7 +71,9 @@ a {
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* nav */
+/* =====================
+   NAV
+   ===================== */
 .main-nav {
   padding-bottom: 14px;
 }
@@ -96,19 +102,23 @@ a {
   transition: all 0.18s ease;
 }
 
+/* hover effect on nav links -- required by assignment */
 .main-nav a:hover {
   background: var(--ravens-gold);
   color: var(--ravens-black);
   border-color: var(--ravens-gold);
 }
 
+/* shows which page ur on -- aria-current=page targets this */
 .main-nav a[aria-current="page"] {
   background: var(--ravens-gold);
   color: var(--ravens-black);
   border-color: var(--ravens-gold);
 }
 
-/* main content */
+/* =====================
+   MAIN CONTENT AREA
+   ===================== */
 main.container {
   padding-top: 28px;
   padding-bottom: 28px;
@@ -119,6 +129,7 @@ main.container {
   margin-bottom: 24px;
 }
 
+/* underline effect on section headings */
 .hero h2,
 .page-header h2 {
   color: var(--ravens-purple);
@@ -135,21 +146,26 @@ main.container {
   color: var(--text-soft);
 }
 
-/* grid layout */
+/* =====================
+   GRID LAYOUT -- using CSS grid per assignment req
+   ===================== */
 .featured-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 22px;
   margin-top: 20px;
 }
 
-.cards-list {
+/* single column list layout used on some pages */
+.content-list {
   display: grid;
   gap: 20px;
   margin-top: 20px;
 }
 
-/* tiles -- tried border-radius: 0 here once, looked too boxy */
+/* =====================
+   TILES / CARDS
+   ===================== */
 .tile {
   background: linear-gradient(to bottom, #ffffff, var(--bg-soft));
   border: 1px solid var(--border-soft);
@@ -159,6 +175,7 @@ main.container {
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
 
+/* hover effect on tiles */
 .tile:hover {
   transform: translateY(-4px);
   border-color: rgba(36, 23, 115, 0.35);
@@ -173,8 +190,9 @@ main.container {
 
 .tile-img {
   width: 100%;
-  height: 280px;
+  height: 200px;
   object-fit: cover;
+  object-position: left center;
   border-bottom: 2px solid rgba(36, 23, 115, 0.08);
 }
 
@@ -182,11 +200,11 @@ main.container {
   padding: 14px;
 }
 
+/* using element selector here -- one of the 3 required selector types */
 .tile-text h3 {
   color: var(--ravens-purple);
   margin-bottom: 8px;
   font-size: 1.05rem;
-  /* font-size: 1.1em; */
 }
 
 .tile-text p {
@@ -199,49 +217,242 @@ main.container {
   margin-bottom: 0;
 }
 
-/* wide tile layout -- only used on the famous cards page */
+/* =====================
+   WIDE TILE -- used on content pages for side-by-side layout
+   ===================== */
 .tile-wide .tile-link,
 .tile-wide .tile-link-wide {
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 200px 1fr;
   align-items: stretch;
 }
 
 .tile-link-wide .tile-img,
 .tile-wide .tile-img {
   height: 100%;
-  min-height: 220px;
+  min-height: 180px;
   object-fit: cover;
 }
 
-.value {
-  margin-top: 10px;
-  font-weight: bold;
-  color: var(--ravens-black);
+/* =====================
+   CONTENT SECTIONS -- for the text heavy pages
+   ===================== */
+.content-section {
+  margin-bottom: 32px;
 }
 
-/* footer */
+/* class selector -- another required selector type */
+.content-section h2 {
+  color: var(--ravens-purple);
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--ravens-gold);
+  padding-bottom: 6px;
+  margin-bottom: 14px;
+}
+
+.content-section h3 {
+  color: var(--ravens-purple-dark);
+  font-size: 1.15rem;
+  margin: 16px 0 8px;
+}
+
+.content-section p {
+  color: var(--text-soft);
+  margin-bottom: 12px;
+}
+
+/* lists inside content sections */
+.content-section ul,
+.content-section ol {
+  margin-left: 22px;
+  margin-bottom: 14px;
+  color: var(--text-soft);
+}
+
+.content-section li {
+  margin-bottom: 6px;
+}
+
+/* =====================
+   TABLE STYLES -- required by the assignment
+   ===================== */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-soft);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ID selector -- the third required selector type */
+#browser-comparison th {
+  background: var(--ravens-purple);
+  color: white;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.styled-table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-soft);
+  color: var(--text-soft);
+}
+
+/* alternating row colors for readability */
+.styled-table tr:nth-child(even) {
+  background: var(--bg-soft);
+}
+
+.styled-table tr:hover {
+  background: #ede8f7;
+}
+
+/* =====================
+   KEY CONCEPTS CARDS
+   ===================== */
+.concept-card {
+  background: white;
+  border: 1px solid var(--border-soft);
+  border-left: 4px solid var(--ravens-purple);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-soft);
+}
+
+.concept-card h3 {
+  color: var(--ravens-purple);
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.concept-card p {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+
+/* =====================
+   REFERENCES PAGE
+   ===================== */
+.ref-section {
+  margin-bottom: 30px;
+}
+
+.ref-section h2 {
+  color: var(--ravens-purple);
+  font-size: 1.4rem;
+  border-bottom: 2px solid var(--ravens-gold);
+  padding-bottom: 6px;
+  margin-bottom: 14px;
+}
+
+.ref-item {
+  background: white;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+.ref-item p {
+  color: var(--text-soft);
+  font-size: 0.93rem;
+  margin-bottom: 4px;
+}
+
+.ref-item a {
+  color: var(--ravens-purple);
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+.ref-item a:hover {
+  color: var(--ravens-gold);
+}
+
+/* =====================
+   ABOUT PAGE
+   ===================== */
+.about-card {
+  background: white;
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-soft);
+}
+
+.about-card h2 {
+  color: var(--ravens-purple);
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--ravens-gold);
+  padding-bottom: 6px;
+  margin-bottom: 14px;
+}
+
+.about-card p {
+  color: var(--text-soft);
+  margin-bottom: 10px;
+}
+
+.about-card ul {
+  margin-left: 20px;
+  color: var(--text-soft);
+}
+
+.about-card li {
+  margin-bottom: 6px;
+}
+
+/* =====================
+   FOOTER
+   ===================== */
 .site-footer {
   margin-top: 36px;
   padding: 16px 0;
   text-align: center;
   background: #faf8fd;
-  border-top: 3px solid #9e7c0c;
-  font-size: 0.95rem;
+  border-top: 3px solid var(--ravens-gold);
+  font-size: 0.9rem;
+  color: var(--text-soft);
 }
 
-/* responsive -- TODO: maybe add a tablet breakpoint at 900px at some point */
+.site-footer a {
+  color: var(--ravens-purple);
+  text-decoration: underline;
+}
+
+.site-footer a:hover {
+  color: var(--ravens-gold);
+}
+
+/* =====================
+   RESPONSIVE -- mobile breakpoint
+   ===================== */
 @media (max-width: 700px) {
   .site-title {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
   }
 
   .tile-img {
-    height: 240px;
+    height: 200px;
   }
 
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* stack wide tiles on mobile */
   .tile-wide .tile-link,
   .tile-wide .tile-link-wide {
     grid-template-columns: 1fr;
+  }
+
+  .styled-table {
+    font-size: 0.85rem;
   }
 }

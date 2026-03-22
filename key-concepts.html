@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Key Concepts in Web Browser Technology | Web Browsers As A Platform</title>
+  <meta name="description" content="Seven key concepts every web developer should understand about modern web browsers, including DOM, rendering, sandboxing, WebAssembly, and more.">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <h1 class="site-title">Web Browsers As A Platform</h1>
+        <p class="tagline">History &bull; Architecture &bull; Key Concepts &bull; Future Trends</p>
+      </div>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="how-browsers-work.html">How Browsers Work</a></li>
+          <li><a href="key-concepts.html" aria-current="page">Key Concepts</a></li>
+          <li><a href="references.html">References</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <header class="page-header">
+      <h2>7 Key Concepts in Web Browser Technology</h2>
+      <p>
+        These are the core ideas behind how modern browsers work. Understanding these concepts
+        gives you a foundation for everything else in web development.
+      </p>
+    </header>
+
+    <!-- concept cards -- one per concept, 7 total as required by assignment -->
+
+    <div class="concept-card">
+      <h3>1. The Document Object Model (DOM)</h3>
+      <p>
+        The DOM is the browser's internal, tree-like representation of an HTML document. When a browser
+        loads a page, it parses the HTML and constructs the DOM, which represents every element as a node
+        in a tree. JavaScript can then read and manipulate the DOM to dynamically change page content without
+        reloading. The DOM is the bridge between your HTML and the JavaScript that brings it to life.
+      </p>
+    </div>
+
+    <div class="concept-card">
+      <h3>2. The Render Pipeline (DOM + CSSOM = Render Tree)</h3>
+      <p>
+        The browser builds two separate models: the DOM for structure and the CSS Object Model (CSSOM)
+        for styling. These are combined into a <strong>render tree</strong>, which only includes the visible
+        elements and their computed styles. The browser then performs layout calculations (figuring out where
+        everything goes) and finally paints the result to the screen. Understanding this pipeline helps
+        developers avoid common performance bottlenecks like layout thrashing.
+      </p>
+    </div>
+
+    <div class="concept-card">
+      <h3>3. JavaScript Engine and JIT Compilation</h3>
+      <p>
+        Modern browsers include a dedicated JavaScript engine (Chrome uses V8, Firefox uses SpiderMonkey).
+        These engines use <strong>Just-in-Time (JIT) compilation</strong> to convert JavaScript code into
+        machine code at runtime. Code that gets executed frequently is optimized more aggressively. This is
+        why JavaScript performance has improved enormously over the last 15 years. The engines got
+        dramatically smarter about optimization.
+      </p>
+    </div>
+
+    <div class="concept-card">
+      <h3>4. The Event Loop and Asynchronous Execution</h3>
+      <p>
+        JavaScript is single-threaded, meaning it can only do one thing at a time. The <strong>event loop</strong>
+        is the mechanism that lets browsers handle things like user input, network responses, and timers without
+        blocking the entire page. When an async operation completes (like a fetch request), its callback is
+        queued and processed by the event loop. This model is fundamental to building responsive web applications.
+      </p>
+    </div>
+
+    <div class="concept-card">
+      <h3>5. Sandboxing and the Same Origin Policy</h3>
+      <p>
+        Browsers run untrusted code from the internet every time you load a webpage. <strong>Sandboxing</strong>
+        keeps renderer processes isolated from the operating system, the file system, and other tabs.
+        The <strong>Same Origin Policy</strong> prevents JavaScript on one site from reading data from
+        another site (so a random webpage can't access your banking session). These two concepts together
+        form the core of browser security.
+      </p>
+    </div>
+
+    <div class="concept-card">
+      <h3>6. WebAssembly (WASM)</h3>
+      <p>
+        WebAssembly is a binary instruction format that allows code written in languages like C, C++, and Rust
+        to run in the browser at near-native speeds. It doesn't replace JavaScript, it complements it.
+        WASM enables things that were previously impossible in a browser: high-performance video editing,
+        3D gaming, physics simulations, and more. It's a major step toward the browser as a true
+        general-purpose computing platform (Steiner, 2023).
+      </p>
+    </div>
+
+    <div class="concept-card">
+      <h3>7. Progressive Web Apps (PWAs)</h3>
+      <p>
+        Progressive Web Apps use modern browser APIs to deliver app-like experiences directly from the web.
+        They support offline functionality via <strong>Service Workers</strong>, can be installed on a device's
+        home screen, support push notifications, and can sync data in the background. PWAs blur the line between
+        web and native applications. From a business standpoint, they let companies ship one codebase that works
+        everywhere instead of maintaining separate iOS, Android, and desktop apps (Nyakundi, 2023).
+      </p>
+    </div>
+
+    <!-- browser comparison table -- shows the major browsers side by side -->
+    <section class="content-section" style="margin-top: 36px;">
+      <h2>Major Browsers at a Glance</h2>
+      <p>How the four major browsers compare on the concepts covered in this site.</p>
+
+      <table class="styled-table" id="browser-comparison">
+        <thead>
+          <tr>
+            <th>Browser</th>
+            <th>Engine</th>
+            <th>JS Engine</th>
+            <th>Open Source?</th>
+            <th>Notable For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Google Chrome</strong></td>
+            <td>Blink</td>
+            <td>V8</td>
+            <td>Partially (Chromium)</td>
+            <td>Market dominance, performance, Google ecosystem</td>
+          </tr>
+          <tr>
+            <td><strong>Mozilla Firefox</strong></td>
+            <td>Gecko</td>
+            <td>SpiderMonkey</td>
+            <td>Yes</td>
+            <td>Privacy focus, independent engine, open standards advocacy</td>
+          </tr>
+          <tr>
+            <td><strong>Apple Safari</strong></td>
+            <td>WebKit</td>
+            <td>JavaScriptCore</td>
+            <td>Partially</td>
+            <td>Battery efficiency on Apple devices, iOS default browser</td>
+          </tr>
+          <tr>
+            <td><strong>Microsoft Edge</strong></td>
+            <td>Blink (Chromium)</td>
+            <td>V8</td>
+            <td>Partially (Chromium)</td>
+            <td>Windows integration, built-in AI features (Copilot)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>IT 3203 &mdash; Intro to Web Development &bull; Class project by Niklas Knipschild &bull;
+        <a href="https://ksuweb.github.io/IT3203/" target="_blank">IT 3203 Course Website</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

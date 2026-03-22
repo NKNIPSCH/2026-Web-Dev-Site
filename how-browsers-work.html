@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- descriptive title with topic keyword first, site name second -- SEO best practice -->
+  <title>How Browsers Work | Web Browsers As A Platform</title>
+  <meta name="description" content="How modern web browsers work internally -- rendering engines, JavaScript execution, multi-process architecture, sandboxing, and performance optimization.">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <h1 class="site-title">Web Browsers As A Platform</h1>
+        <p class="tagline">History &bull; Architecture &bull; Key Concepts &bull; Future Trends</p>
+      </div>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="how-browsers-work.html" aria-current="page">How Browsers Work</a></li>
+          <li><a href="key-concepts.html">Key Concepts</a></li>
+          <li><a href="references.html">References</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <header class="page-header">
+      <h2>How Modern Browsers Work</h2>
+      <p>
+        Modern web browsers are among the most complex pieces of consumer software we use every day.
+        What looks like a simple app for browsing the web is actually a collection of sophisticated
+        subsystems working together.
+      </p>
+    </header>
+
+    <!-- rendering section -->
+    <section class="content-section">
+      <h2>The Rendering Engine</h2>
+      <p>
+        The rendering engine is responsible for turning web content into pixels displayed on the screen.
+        When a browser receives an HTML document, it reads the markup and constructs a
+        <strong>Document Object Model (DOM)</strong> that represents the page structure. At the same time,
+        CSS is read into a <strong>CSS Object Model (CSSOM)</strong>. These two structures are combined to form
+        a <strong>render tree</strong>, which determines the layout and styling of every element on the page
+        (Osmani, 2025).
+      </p>
+      <p>
+        Once layout calculations are done, the browser paints individual elements and composites them into the
+        final image you see. Modern browsers optimize this pipeline heavily through techniques like incremental
+        rendering and GPU acceleration, which allows pages to stay responsive even as content changes.
+      </p>
+    </section>
+
+    <!-- javascript section -->
+    <section class="content-section">
+      <h2>JavaScript Execution</h2>
+      <p>
+        JavaScript execution is handled by a dedicated <strong>JavaScript engine</strong>. Modern engines are
+        a far cry from the simple interpreters of the early web. They use
+        <strong>Just-in-Time (JIT) compilation</strong> to convert frequently executed JavaScript code directly
+        into machine code, which dramatically improves performance (Osmani, 2025).
+      </p>
+      <p>
+        The JavaScript engine also manages the <strong>event loop</strong>, which is what allows browsers to
+        handle asynchronous operations like user input, network requests, and timers without freezing the
+        entire page. This is what makes real-time collaboration tools and complex interactive applications
+        possible in a browser.
+      </p>
+    </section>
+
+    <!-- multi process section -->
+    <section class="content-section">
+      <h2>Multi-Process Architecture</h2>
+      <p>
+        One of the most important advances in modern browsers is the adoption of a
+        <strong>multi-process model</strong>. Instead of running everything in one process (which would mean
+        one crashed tab takes down the whole browser), browsers isolate tasks across multiple processes.
+      </p>
+      <p>
+        Typically the browser process manages the user interface and system resources, while separate
+        <strong>renderer processes</strong> handle individual tabs or sites (Osmani, 2025). This improves
+        both stability and security significantly. A crash in one tab stays in that tab.
+      </p>
+
+      <!-- list of processes to show the structure -- using ordered list here -->
+      <h3>Main Browser Processes</h3>
+      <ol>
+        <li><strong>Browser Process</strong>: manages the UI, navigation, and system resources</li>
+        <li><strong>Renderer Process</strong>: one per tab (or site), handles HTML/CSS/JS rendering</li>
+        <li><strong>GPU Process</strong>: handles GPU tasks like compositing and painting</li>
+        <li><strong>Network Process</strong>: manages all network requests</li>
+        <li><strong>Plugin / Extension Process</strong>: isolates extensions from core browser code</li>
+      </ol>
+    </section>
+
+    <!-- security section -->
+    <section class="content-section">
+      <h2>Security and Sandboxing</h2>
+      <p>
+        Security is a core design concern in modern browsers because they routinely execute untrusted code from
+        unknown sources. To manage this risk, browsers use <strong>sandboxing</strong>. Renderer processes are
+        restricted from interacting directly with the operating system, the file system, or other tabs (Osmani, 2025).
+      </p>
+      <p>
+        Additional protections like the <strong>Same Origin Policy</strong>, permission-based APIs, and site
+        isolation further reduce the attack surface. Together these mechanisms allow browsers to function as
+        secure execution environments for code that could theoretically be malicious.
+      </p>
+    </section>
+
+    <!-- performance section -->
+    <section class="content-section">
+      <h2>Performance Optimization</h2>
+      <p>
+        Performance is a critical requirement for modern browsers, especially as they replace traditional desktop
+        software. Slowness directly impacts user productivity and adoption. Browser companies like Mozilla invest
+        heavily in performance research as a result (Mozilla, ND).
+      </p>
+      <p>
+        Key optimization strategies include:
+      </p>
+      <ul>
+        <li>Caching network resources to avoid redundant downloads</li>
+        <li>Hardware acceleration: offloading rendering tasks to the GPU</li>
+        <li>JIT compilation of frequently executed JavaScript</li>
+        <li>Asynchronous operations to prevent UI blocking</li>
+        <li>Intelligent memory management and background task scheduling</li>
+      </ul>
+      <p>
+        Through these ongoing improvements, web applications have achieved near-native performance in many use
+        cases, something that would have seemed impossible in the Netscape era.
+      </p>
+    </section>
+
+    <!-- future section -->
+    <section class="content-section">
+      <h2>Where Browsers Are Headed</h2>
+      <p>
+        The future of web browsers is defined by expansion beyond traditional document rendering toward full
+        application and even system-level capabilities.
+      </p>
+      <p>
+        <strong>WebAssembly (WASM)</strong> allows code written in languages like C, C++, and Rust to run in
+        the browser at near-native performance. This enables compute-intensive applications like video editing,
+        gaming, and scientific simulations to run entirely inside a browser tab (Steiner, 2023).
+      </p>
+      <p>
+        <strong>Progressive Web Apps (PWAs)</strong> blur the line between web and native applications by
+        supporting offline functionality, background synchronization, and installation on devices. Basically,
+        an app that lives inside your browser but acts like it doesnt (Nyakundi, 2023).
+      </p>
+      <p>
+        Together, these developments are pushing browsers toward becoming a general-purpose computing environment.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>IT 3203 &mdash; Intro to Web Development &bull; Class project by Niklas Knipschild &bull;
+        <a href="https://ksuweb.github.io/IT3203/" target="_blank">IT 3203 Course Website</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
