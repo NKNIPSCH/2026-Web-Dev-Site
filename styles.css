@@ -151,7 +151,7 @@ main.container {
    ===================== */
 .featured-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 22px;
   margin-top: 20px;
 }
@@ -428,6 +428,268 @@ main.container {
 
 .site-footer a:hover {
   color: var(--ravens-gold);
+}
+
+/* =====================
+   KEY TERMS LIST -- spacing fix so it doesnt look cramped
+   ===================== */
+.key-terms-list {
+  margin-left: 22px;
+  color: var(--text-soft);
+}
+
+/* each term gets its own breathing room */
+.key-terms-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-soft);
+  line-height: 1.5;
+}
+
+.key-terms-list li:last-child {
+  border-bottom: none;
+}
+
+/* =====================
+   QUIZ PAGE STYLES -- keeping it consistent with the rest of the site
+   ===================== */
+
+/* each question gets its own card -- same style as the concept cards */
+.quiz-form {
+  margin-top: 10px;
+}
+
+.quiz-question {
+  background: white;
+  border: 1px solid var(--border-soft);
+  border-left: 4px solid var(--ravens-purple);
+  border-radius: 8px;
+  padding: 20px 22px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+.question-num {
+  color: var(--ravens-purple);
+  font-weight: 700;
+}
+
+.question-text {
+  font-size: 1rem;
+  color: var(--text-main);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+/* fill in the blank input -- match the purple theme */
+.fitb-wrap {
+  margin-top: 8px;
+}
+
+.fitb-input {
+  padding: 9px 13px;
+  border: 2px solid var(--border-soft);
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 260px;
+  color: var(--text-main);
+  transition: border-color 0.18s ease;
+}
+
+.fitb-input:focus {
+  outline: none;
+  border-color: var(--ravens-purple);
+}
+
+/* radio and checkbox answer list -- no default list styling */
+.choice-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* each label is the whole clickable row -- easier to click */
+.choice-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: var(--text-soft);
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: background 0.14s ease, border-color 0.14s ease;
+}
+
+.choice-label:hover {
+  background: var(--bg-main);
+  border-color: var(--border-soft);
+}
+
+/* make the radio and checkbox a little bigger so they're easier to see */
+.choice-label input[type="radio"],
+.choice-label input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--ravens-purple);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* submit and retake buttons */
+.quiz-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 14px;
+}
+
+.quiz-btn {
+  padding: 11px 28px;
+  border: none;
+  border-radius: 7px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.12s ease;
+}
+
+.quiz-btn:active {
+  transform: scale(0.97);
+}
+
+.quiz-btn-submit {
+  background: var(--ravens-purple);
+  color: white;
+}
+
+.quiz-btn-submit:hover {
+  background: var(--ravens-purple-dark);
+}
+
+.quiz-btn-retake {
+  background: var(--ravens-gold);
+  color: white;
+}
+
+.quiz-btn-retake:hover {
+  background: #7c6209;
+}
+
+/* results section -- hidden by default, JS shows it after submit */
+.quiz-results {
+  display: none;
+  margin-top: 10px;
+}
+
+/* score summary box at the top -- green for pass, red for fail */
+.result-score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 22px 26px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  border-left: 6px solid;
+}
+
+/* green for pass */
+.result-pass {
+  background: #edfaf2;
+  border-color: #27ae60;
+}
+
+/* red for fail */
+.result-fail {
+  background: #fdecea;
+  border-color: #e74c3c;
+}
+
+.result-verdict {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.result-pass .result-verdict {
+  color: #1e8449;
+}
+
+.result-fail .result-verdict {
+  color: #c0392b;
+}
+
+.result-num {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.result-msg {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+
+/* per-question feedback heading */
+.breakdown-heading {
+  color: var(--ravens-purple);
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+  border-bottom: 2px solid var(--ravens-gold);
+  padding-bottom: 6px;
+}
+
+/* each feedback row -- green for right, red for wrong */
+.feedback-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 13px 16px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: 1px solid;
+}
+
+/* green for correct */
+.feedback-correct {
+  background: #edfaf2;
+  border-color: #a9dfbf;
+}
+
+/* red for wrong -- makes it obvious */
+.feedback-wrong {
+  background: #fdecea;
+  border-color: #f5c6cb;
+}
+
+.feedback-icon {
+  font-size: 1.2rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.feedback-correct .feedback-icon {
+  color: #1e8449;
+}
+
+.feedback-wrong .feedback-icon {
+  color: #c0392b;
+}
+
+.feedback-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+/* shows the right answer under wrong ones */
+.correct-answer {
+  color: #1e8449;
+  font-size: 0.9rem;
 }
 
 /* =====================
