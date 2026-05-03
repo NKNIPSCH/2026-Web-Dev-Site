@@ -693,7 +693,60 @@ main.container {
 }
 
 /* =====================
+<<<<<<< Updated upstream
    RESPONSIVE -- mobile breakpoint
+=======
+   ABOUT PAGE PHOTO -- floated right so it sits next to the intro text
+   ===================== */
+.about-photo {
+  float: right;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 0 14px 20px;
+  border: 3px solid var(--ravens-purple);
+  box-shadow: var(--shadow-soft);
+}
+
+/* clearfix so the float doesnt mess up the next card below */
+.about-card::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* =====================
+   RESPONIVE -- tablet breakpoint around 768px
+   ===================== */
+@media (max-width: 768px) {
+  /* a little more padding on nav so its easier to tap on a tablet */
+  .main-nav a {
+    padding: 9px 12px;
+  }
+
+  /* narrow the wide tile image column a bit on tablet */
+  .tile-wide .tile-link,
+  .tile-wide .tile-link-wide {
+    grid-template-columns: 150px 1fr;
+  }
+
+  /* headings dont need to be as big on tablet */
+  .hero h2,
+  .page-header h2 {
+    font-size: 1.5rem;
+  }
+
+  /* smaller photo on tablet -- still floated tho */
+  .about-photo {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* =====================
+   RESPONSIVE -- mobile breakpoint 700px (original one)
+>>>>>>> Stashed changes
    ===================== */
 @media (max-width: 700px) {
   .site-title {
@@ -708,13 +761,86 @@ main.container {
     grid-template-columns: 1fr;
   }
 
-  /* stack wide tiles on mobile */
+  /* stack wide tiles on mobil */
   .tile-wide .tile-link,
   .tile-wide .tile-link-wide {
     grid-template-columns: 1fr;
   }
 
+  /* tables need to scroll sideways or they break the whole layout on small screens */
   .styled-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     font-size: 0.85rem;
+  }
+}
+
+/* =====================
+   RESPONSIVE -- small phones 480px -- tightest layout
+   ===================== */
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 1.25rem;
+  }
+
+  /* nav stacks vertically on small phones -- way less cramped */
+  .main-nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+  }
+
+  .main-nav a {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  /* headings get smaller on phones */
+  .hero h2,
+  .page-header h2 {
+    font-size: 1.15rem;
+  }
+
+  /* fill in blank input goes full width on phone -- easier to type in */
+  .fitb-input {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  /* choice labels need bigger tap area on touch screens */
+  .choice-label {
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
+  /* radio/checkbox a bit bigger for fingers */
+  .choice-label input[type="radio"],
+  .choice-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* quiz buttons go full width on phone */
+  .quiz-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+  }
+
+  .quiz-actions {
+    flex-direction: column;
+  }
+
+  /* photo stops floating on tiny screens -- just stacks on top instead */
+  .about-photo {
+    float: none;
+    display: block;
+    margin: 0 auto 16px;
+    width: 110px;
+    height: 110px;
   }
 }
