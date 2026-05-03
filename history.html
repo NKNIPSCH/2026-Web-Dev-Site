@@ -19,6 +19,13 @@
         <p class="tagline">History &bull; Architecture &bull; Key Concepts &bull; Future Trends</p>
       </div>
 
+      <!-- hamburger button -- only shows on mobile, js handles the toggle -->
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+
       <nav class="main-nav" aria-label="Primary navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -169,6 +176,19 @@
       </p>
     </div>
   </footer>
+
+  <script>
+    // grab the button and nav -- gonna toggle a class on click
+    var hamburger = document.getElementById('hamburger-btn');
+    var nav = document.querySelector('.main-nav');
+
+    hamburger.addEventListener('click', function () {
+      // toggle nav-open -- css does the actual showing/hiding
+      nav.classList.toggle('nav-open');
+      // tell screen readers if the nav is open or not
+      hamburger.setAttribute('aria-expanded', nav.classList.contains('nav-open'));
+    });
+  </script>
 
 </body>
 </html>

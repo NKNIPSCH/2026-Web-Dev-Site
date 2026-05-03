@@ -117,6 +117,23 @@ a {
 }
 
 /* =====================
+   HAMBURGER BUTTON -- hidden on desktop, css turns it on below 700px
+   ===================== */
+/* starts hidden -- only mobile css makes it visible */
+.hamburger {
+  display: none;
+}
+
+/* the three lines of the hamburger icon */
+.hamburger-bar {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* =====================
    MAIN CONTENT AREA
    ===================== */
 main.container {
@@ -773,6 +790,63 @@ main.container {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     font-size: 0.85rem;
+  }
+
+  /* need relative here so the hamburger can use position absolute */
+  .site-header .container {
+    position: relative;
+  }
+
+  /* show the hamburger on mobile -- 44x44 so its big enough to tap */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    position: absolute;
+    top: 16px;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .hamburger:hover {
+    background: var(--ravens-gold);
+    border-color: var(--ravens-gold);
+  }
+
+  /* hide nav links by default on mobile -- hamburger shows them */
+  .main-nav {
+    display: none;
+    padding-bottom: 0;
+  }
+
+  /* js adds this class when hamburger is clicked -- drops the nav down */
+  .main-nav.nav-open {
+    display: block;
+    padding-bottom: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 8px;
+  }
+
+  /* stack links vertically when the menu is open */
+  .main-nav.nav-open ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    padding-top: 8px;
+  }
+
+  .main-nav.nav-open a {
+    text-align: center;
+    display: block;
+    padding: 10px 14px;
   }
 }
 
